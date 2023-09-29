@@ -2,26 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* START: General styles */
+.flex-center {
+  @apply flex items-center justify-center;
+}
+.flex-center-col {
+  @apply flex flex-col items-center justify-center;
+}
+.full-page-center {
+  @apply w-full h-screen flex items-center justify-center ;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.flex-between {
+  @apply flex justify-between items-center;
+}
+ 
+
+/* Navbar */
+
+.nav-container{
+  @apply relative w-full h-16 bg-slate-200 flex-between px-8 border-b 
+}
+.nav-toggle{
+  @apply absolute fixed top-16 left-0 right-0 flex justify-center items-start md:hidden  bg-slate-200 rounded-b-md p-4 border-t border-slate-400 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]
+}
+.nav-toggle{
+  @apply absolute fixed top-16 left-0 right-0 flex justify-center items-start md:hidden  bg-slate-200 rounded-b-md p-4 border-t border-slate-400 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]
 }
