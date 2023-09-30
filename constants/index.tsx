@@ -20,3 +20,20 @@ export const navItem = [
 
     }
 ]
+
+export const profileItem=[
+    {
+        id:"1",
+        item: "Login",
+        url:'/'
+        
+
+    },
+    {
+        id:"2",
+        item: "Register",
+        url:'/'
+
+    },
+
+]

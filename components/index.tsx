@@ -1,5 +1,5 @@
 import React from 'react'
-import Nevbar from './Nevbar'
+import Nevbar from './navbar/Nevbar'
 import Footer from './Footer'
 import Logo from './navbar/Logo'
 
