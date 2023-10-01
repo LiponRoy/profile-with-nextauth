@@ -1,19 +1,18 @@
 'use client';
 import { Logo } from '..';
-import {
-	navItem,
-	profileItem,
-} from '@/constants';
+import { navItem, profileItem } from '@/constants';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FaAlignJustify } from 'react-icons/fa';
 import { RxCross2 } from 'react-icons/rx';
 import { CgProfile } from 'react-icons/cg';
+import useRegisterModal from '@/hooks/useRegisterModal';
 
 const Nevbar = () => {
+	const registerModal = useRegisterModal();
+
 	const [toggle, setToggle] = useState(false);
-	const [profileToggle, setProfileToggle] =
-		useState(false);
+	const [profileToggle, setProfileToggle] = useState(false);
 
 	const changeToggle = () => {
 		setToggle(!toggle);
@@ -29,17 +28,12 @@ const Nevbar = () => {
 			<div className="hidden md:flex bg-slate-100 p-2 rounded-lg border-2 border-slate-300">
 				{navItem.map((value) => (
 					<Link href={value.url} key={value.id}>
-						<span className=" px-2 hover:text-slate-400">
-							{value.item}
-						</span>
+						<span className=" px-2 hover:text-slate-400">{value.item}</span>
 					</Link>
 				))}
 			</div>
 			<div className="md:hidden ">
-				<div
-					onClick={() => changeToggle()}
-					className=" cursor-pointer"
-				>
+				<div onClick={() => changeToggle()} className=" cursor-pointer">
 					{!toggle && <FaAlignJustify />}
 				</div>
 			</div>
@@ -53,9 +47,7 @@ const Nevbar = () => {
 							href={value.url}
 							key={value.id}
 						>
-							<span className=" hover:text-slate-400 my-16">
-								{value.item}
-							</span>
+							<span className=" hover:text-slate-400 my-16">{value.item}</span>
 						</Link>
 					))}
 					<div
@@ -92,11 +84,15 @@ const Nevbar = () => {
           "
 				>
 					<div className="flex flex-col justify-center items-start bg-slate-400 text-white p-6 gap-y-2 ">
-						{profileItem.map((val) => (
+						{/* {profileItem.map((val) => (
 							<Link key={val.id} href={val.url}>
 								{val.item}
 							</Link>
-						))}
+						))} */}
+						<span className=" cursor-pointer">Login</span>
+						<span onClick={registerModal.onOpen} className=" cursor-pointer">
+							Register
+						</span>
 					</div>
 				</div>
 			)}
