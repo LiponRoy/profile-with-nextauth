@@ -19,7 +19,7 @@ const Nevbar = () => {
 	};
 	const changeProfileToggle = () => {
 		setProfileToggle(!profileToggle);
-		console.log(profileToggle);
+		// console.log(profileToggle);
 	};
 
 	return (
