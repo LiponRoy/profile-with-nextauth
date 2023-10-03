@@ -2,6 +2,7 @@ import { Footer, Nevbar } from '@/components';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
+import RegisterModal from '@/components/models/RegisterModal';
 
 const nunito = Nunito({ subsets: ['latin'] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={nunito.className}>
 				<Nevbar />
+				<RegisterModal />
 				{children}
 				<Footer />
 			</body>
