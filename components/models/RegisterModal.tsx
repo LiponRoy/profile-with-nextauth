@@ -8,15 +8,27 @@ import { toast } from 'react-hot-toast';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 import useRegisterModal from '@/hooks/useRegisterModal';
+import useLoginModal from '@/hooks/useLoginModal';
 
 import Modal from './Modal';
 import Input from '../Input';
 import Heading from '../Heading';
 import Button from '../Button';
 
+
 const RegisterModal = () => {
 	const registerModal = useRegisterModal();
+	const _LoginModal = useLoginModal();
+	
 	const [isLoading, setIsLoading] = useState(false);
+
+
+	const onToggle= useCallback(() => {
+		_LoginModal.onOpen();
+		registerModal.onClose();
+	
+	
+	  },[_LoginModal,registerModal])
 
 	const {
 		register,
@@ -78,6 +90,12 @@ const RegisterModal = () => {
 		</div>
 	);
 
+	const footerContent = (
+		<div className="flex flex-col gap-4">
+		  <span onClick={onToggle} >Go login Page</span>
+		</div>
+	  );
+
 	return (
 		<Modal
 			disabled={isLoading}
@@ -87,6 +105,7 @@ const RegisterModal = () => {
 			onClose={registerModal.onClose}
 			onSubmit={handleSubmit(onSubmit)}
 			body={bodyContent}
+			footer={footerContent}
 		/>
 	);
 };

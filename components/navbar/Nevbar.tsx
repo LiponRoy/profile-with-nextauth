@@ -7,9 +7,12 @@ import { FaAlignJustify } from 'react-icons/fa';
 import { RxCross2 } from 'react-icons/rx';
 import { CgProfile } from 'react-icons/cg';
 import useRegisterModal from '@/hooks/useRegisterModal';
+import useLoginModal from '@/hooks/useLoginModal';
 
 const Nevbar = () => {
 	const registerModal = useRegisterModal();
+	const loginModal = useLoginModal();
+	
 
 	const [toggle, setToggle] = useState(false);
 	const [profileToggle, setProfileToggle] = useState(false);
@@ -89,7 +92,9 @@ const Nevbar = () => {
 								{val.item}
 							</Link>
 						))} */}
-						<span className=" cursor-pointer">Login</span>
+						<span onClick={loginModal.onOpen} className=" cursor-pointer">
+							Login
+						</span>
 						<span onClick={registerModal.onOpen} className=" cursor-pointer">
 							Register
 						</span>
