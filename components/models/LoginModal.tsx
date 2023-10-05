@@ -89,6 +89,8 @@ const LoginModal = () => {
   );
   const footerContent = (
     <div className="flex flex-col gap-4">
+      <hr/>
+      <Button icon={FcGoogle} outline label='Google Sign In' onClick={()=>signIn('google')}/>
       <span onClick={onToggle} >Go signup Page</span>
     </div>
   );

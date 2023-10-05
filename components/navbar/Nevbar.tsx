@@ -11,6 +11,7 @@ import useLoginModal from "@/hooks/useLoginModal";
 import { User } from "@prisma/client";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/types";
+import Image from "next/image";
 
 interface navbarProps {
   currentUser?: SafeUser | null;
@@ -33,9 +34,10 @@ const Nevbar = ({ currentUser }: navbarProps) => {
   };
 
   return (
-    <div className="nav-container">
+    // <div className="nav-container">
+    <div className={`relative w-full h-16  ${currentUser?"bg-pink-600 text-white":"bg-slate-200 text-slate-900"} flex-between px-8 border-b z-50 `}>
       <Logo title={`U-PROFILE OF - ${currentUser? currentUser?.name:""}`} />
-      <div className="hidden md:flex bg-slate-100 p-2 rounded-lg border-2 border-slate-300">
+      <div className={`hidden md:flex bg-slate-300 p-2 rounded-lg border-2 border-slate-300`}>
         {navItem.map((value) => (
           <Link href={value.url} key={value.id}>
             <span className=" px-2 hover:text-slate-400">{value.item}</span>

@@ -14,6 +14,7 @@ import Modal from './Modal';
 import Input from '../Input';
 import Heading from '../Heading';
 import Button from '../Button';
+import { signIn } from 'next-auth/react';
 
 
 const RegisterModal = () => {
@@ -92,8 +93,11 @@ const RegisterModal = () => {
 
 	const footerContent = (
 		<div className="flex flex-col gap-4">
+		  <hr/>
+		  <Button icon={FcGoogle} outline label='Google Sign In' onClick={()=>signIn('google')}/>
 		  <span onClick={onToggle} >Go login Page</span>
 		</div>
+		
 	  );
 
 	return (
